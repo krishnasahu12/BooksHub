@@ -1,0 +1,25 @@
+<ul>
+  <% if user_signed_in? %>
+  <%= render partial: "common/after_sign_in"%>
+  <% else %>
+  <%= render partial: "common/header"%>
+  <% end %>
+</ul>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BooksHub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </body>
+</html>

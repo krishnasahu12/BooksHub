@@ -1,0 +1,26 @@
+<div class="container text-center">
+<div class="row row-cols-4">
+  <% @books.each do |book|%>
+  <div class="col" style="
+    margin-bottom: 25px;">
+  <div class="card" style="width: 17rem; height: 30rem; padding: 20px">
+  <%= link_to(book) do %>
+      <% if book.images.attached?  %>
+        <% book.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
+      <% end %>
+    <% end %>
+<br><br>
+<b> DEGREE : <%= book.degree %> </b><br>
+<b> COURSE : <%= book.course %> </b><br>
+<b> NAME : <%= book.book_name %> </b><br>
+<b> PRICE : &#8377; <%= book.price %> </b><br>
+
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+
+

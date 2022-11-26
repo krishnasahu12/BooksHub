@@ -1,0 +1,42 @@
+<center>
+
+<%= link_to 'Back', books_path, class: "btn btn-primary mb" %><br><br>
+
+<div id="profile">
+<h2> Edit Profile</h2><br>
+
+<%= form_for @profile do |f| %>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label> Name </label>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label> Age </label>
+    <%= f.text_field :age, class: "form-control" %>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label> City </label>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label> Gender </label>
+      <%= f.radio_button :gender, 'male' %> MALE
+      <%= f.radio_button :gender, 'female' %> FEMALE
+    </div>
+  </div>
+
+  <%= f.submit "Edit Profile", class: "btn btn-primary mb-2" %>
+
+<% end %>
+
+</div>
+</center>

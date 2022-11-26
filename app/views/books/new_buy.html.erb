@@ -1,0 +1,33 @@
+<center>
+
+<% if user_signed_in?%>
+<div>
+<%= select_tag :course, options_for_select(['BCOM','BCA','BSC','BTECH','BBA','MCOM','MCA','MSC','MTECH','MBA'], params[:course]), onclick:"window.location.replace('/'+'show_books'+'/'+this.value);", prompt: 'Select Your Course' %><br><br><br>
+</div>
+<% end %>
+
+</center>
+<div class="container text-center">
+<div class="row row-cols-4">
+  <% @books.each do |book|%>
+  <div class="col">
+  <div class="card" style="width: 18rem;">
+  <%= link_to(book) do %>
+      <% if book.images.attached?  %>
+        <% book.images.each do |image| %>
+          <%= image_tag image %>
+        <% end %>
+      <% end %>
+    <b> COURSE : <%= book.course %> </b><br>
+    <% end %>
+  </div>
+    </div>
+<% end %>
+</div>
+</div>
+
+
+
+
+
+

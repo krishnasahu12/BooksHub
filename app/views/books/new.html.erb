@@ -1,0 +1,25 @@
+<center>
+
+<h1> New Books Form </h1><br>
+
+<%= form_for @book do |f| %>
+
+<%= f.label :degree %><br>
+<%= f.text_field :degree %><br><br>
+
+<%= f.label :course %><br>
+<%= f.text_field :course %><br><br>
+
+<%= f.label :book_name %><br>
+<%= f.text_field :book_name %><br><br>
+
+<%= f.label :price %><br>
+<%= f.text_field :price %><br><br>
+
+<%= f.label :Books_Images %>
+<%= f.file_field :images, multiple: true %><br><br>
+
+<%= f.submit %>
+
+<% end %>
+</center>
