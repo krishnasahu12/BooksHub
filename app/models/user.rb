@@ -15,6 +15,7 @@ class User < ApplicationRecord
     has_one :profile
     has_many :books
     has_one :cart
+    has_one :order
   #-------------------------------------------------#
 
   # Include default devise modules. Others available are:
@@ -41,8 +42,8 @@ class User < ApplicationRecord
 
     def set_cart
       self.create_cart()
-    end
-
+    end 
+    
     def from_omniauth?
        provider && uid
     end

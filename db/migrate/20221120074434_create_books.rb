@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :degree
       t.string :course
       t.string :book_name
-      t.string :price
+      t.integer :price
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

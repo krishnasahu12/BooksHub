@@ -7,13 +7,16 @@ default: &default
 development:
   <<: *default
   host: localhost
-  username: postgres1
-  password: '1234'
+  username: postgres
+  password: '12345'
   database: bookhub
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  host: localhost
+  username: postgres
+  password: '12345'
+  database: bookhub
 
 production:
   <<: *default

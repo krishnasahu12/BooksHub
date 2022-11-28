@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   resources :users
   resources :profiles
   resources :books
-  resources :carts
+  resources :address
+  resources :order
   resources :cart_items do
     member do
       post 'cart'
-      get 'increment'
-      get 'decrement'
+      get 'increase'
+      get 'decrease'
     end
   end
 

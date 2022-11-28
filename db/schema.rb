@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_11_26_133512) do
     t.string "degree"
     t.string "course"
     t.string "book_name"
-    t.string "price"
+    t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
