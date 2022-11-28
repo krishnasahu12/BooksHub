@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   after_create :set_profile, :set_cart
 
-  #Validations
+  # Validations
   #-------------------------------------------------#
+  validates :email, presence: true
+  validates :username, presence: true
+  validates :mobile, presence: true, length: { maximum:10}
   validates_presence_of :mobile, unless: -> { from_omniauth? }
-
   #-------------------------------------------------#
 
 
@@ -44,7 +46,6 @@ class User < ApplicationRecord
     def from_omniauth?
        provider && uid
     end
-
 
     def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup

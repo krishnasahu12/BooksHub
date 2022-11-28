@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :cart_items do
     member do
       post 'cart'
+      get 'increment'
+      get 'decrement'
     end
   end
 
