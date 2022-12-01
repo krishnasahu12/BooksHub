@@ -1,0 +1,16 @@
+<center>
+
+<%= link_to 'Back', books_path, class: "btn btn-primary mb" %><br><br>
+
+<h2>Your Profile </h2><br>
+
+Name: <%= @profile.name %><br>
+Age: <%= @profile.age %><br>
+Gender: <%= @profile.gender %><br><br>
+
+<%= link_to 'Edit', edit_profile_path, class: "btn btn-success mb" %>
+<%= link_to 'Delete', root_path,  class: "btn btn-danger mb" %><br><br>
+
+
+
+</center>

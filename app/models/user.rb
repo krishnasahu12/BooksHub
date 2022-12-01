@@ -1,14 +1,13 @@
 class User < ApplicationRecord
-  after_create :set_profile, :set_cart
+  after_create :set_profile, :set_cart, :set_order
 
   # Validations
   #-------------------------------------------------#
   validates :email, presence: true
   validates :username, presence: true
   validates :mobile, presence: true, length: { maximum:10}
-  validates_presence_of :mobile, unless: -> { from_omniauth? }
+  # validates_presence_of :mobile, unless: -> { from_omniauth? }
   #-------------------------------------------------#
-
 
   #Associations
   #-------------------------------------------------#
@@ -16,6 +15,7 @@ class User < ApplicationRecord
     has_many :books
     has_one :cart
     has_one :order
+    has_many :addresses
   #-------------------------------------------------#
 
   # Include default devise modules. Others available are:
@@ -42,11 +42,15 @@ class User < ApplicationRecord
 
     def set_cart
       self.create_cart()
-    end 
-    
-    def from_omniauth?
-       provider && uid
     end
+
+    def set_order
+      self.create_order()
+    end
+
+    # def from_omniauth?
+    #    provider && uid
+    # end
 
     def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
@@ -58,7 +62,7 @@ class User < ApplicationRecord
     end
 
     def self.from_omniauth(access_token)
-      data = access_token.info
+        data = access_token.info
       user = User.find_by(email: data['email'])
       unless user
         $name = data.name
@@ -72,8 +76,5 @@ class User < ApplicationRecord
       user.save
       user
     end
-
-
-  
 end
 

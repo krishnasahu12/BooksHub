@@ -33,6 +33,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+gem "letter_opener"
+gem 'rubocop', require: false
 #--------------------------------------------------------------------#
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -52,7 +54,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "letter_opener"
 end
 
 group :test do

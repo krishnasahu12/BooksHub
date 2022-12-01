@@ -12,6 +12,9 @@
         <%= link_to 'Home', root_path, class: "nav-link active"%>
         </li>
         <li class="nav-item">
+        <%= link_to 'New Book', new_book_path, class: "nav-link active"%>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="#">
       <% if current_user.profile.nil? %>
         <%= link_to 'Create Profile', new_profile_path, class: "nav-link active" %>

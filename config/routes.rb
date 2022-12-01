@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'order_items/index'
+  get 'orders/index'
   get 'cart_items/index'
   get 'carts/index'
   get 'books/index'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   resources :books
   resources :address
   resources :order
+  resources :order_items
   resources :cart_items do
     member do
       post 'cart'

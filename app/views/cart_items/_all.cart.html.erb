@@ -1,22 +1,20 @@
 <div class="modal-body">
     <div id="all-cart-items">
-    <h4> Cart is Here !! </h4>
+  <h6> Welcome, <%= current_user.username %></h6>
     <% cart_items.each do |item|%>
-        <hr>
         <%= image_tag item.book.images.first %><br>
         Course:<%= item.book.course %> <br>
-        <div class="btn-group" role="group" aria-label="Basic outlined example">
         <%= link_to "-", decrease_cart_item_path(item), class:"btn btn-outline-primary", remote: true%>
         <%= link_to "+", increase_cart_item_path(item), class:"btn btn-outline-primary", remote: true%>
         </div>
         <div id = "QuantityStatus<%=item.id%>">
         Quantity: <%= item.quantity %> <br>
         Price: <%= item.book.price * item.quantity%><br>
+        <%= link_to "Buy", order_items_path , class: "btn btn-primary"%><hr>
         </div>
     <% end %>
     </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <%= link_to "Buy", new_address_path , class: "btn btn-primary"%>
 </div>
