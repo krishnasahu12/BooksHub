@@ -3,9 +3,9 @@ class User < ApplicationRecord
 
   # Validations
   #-------------------------------------------------#
-  validates :email, presence: true
-  validates :username, presence: true
-  validates :mobile, presence: true, length: { maximum:10}
+  # validates :email, presence: true
+  # validates :username, presence: true
+  # validates :mobile, presence: true, length: { maximum:10}
   # validates_presence_of :mobile, unless: -> { from_omniauth? }
   #-------------------------------------------------#
 
@@ -66,10 +66,8 @@ class User < ApplicationRecord
       user = User.find_by(email: data['email'])
       unless user
         $name = data.name
-        user = User.create(
-        email: data['email'],
-        password: Devise.friendly_token[0,20]
-       )
+        debugger
+        user = User.create(email: data['email'], password: Devise.friendly_token[0,20])
       end
       user.uid = access_token.uid
       user.provider = access_token.provider

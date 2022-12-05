@@ -10,8 +10,8 @@
         <div id = "QuantityStatus<%=item.id%>">
         Quantity: <%= item.quantity %> <br>
         Price: <%= item.book.price * item.quantity%><br>
-        <%= link_to "Buy", order_items_path , class: "btn btn-primary"%><hr>
         </div>
+        <%= link_to "Buy", new_address_path , class: "btn btn-primary"%><hr>
     <% end %>
     </div>
 </div>

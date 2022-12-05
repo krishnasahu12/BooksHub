@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users
   resources :profiles
   resources :books
-  resources :address
+  resources :addresses
   resources :order
   resources :order_items
   resources :cart_items do
